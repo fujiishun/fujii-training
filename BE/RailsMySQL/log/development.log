@@ -1,9 +1,0 @@
-  [1m[35m (2.0ms)[0m  [1m[35mCREATE DATABASE `RailsMySQL_development` DEFAULT CHARACTER SET `utf8mb4`[0m
-  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE `RailsMySQL_test` DEFAULT CHARACTER SET `utf8mb4`[0m
-Started GET "/" for 172.20.0.1 at 2022-12-07 04:00:15 +0000
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.8ms | Allocations: 584)
-Completed 200 OK in 40ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 4507)
-
-
