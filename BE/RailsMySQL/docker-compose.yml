@@ -18,6 +18,7 @@ services:
             - db
     db:
         image: mysql:5.7
+        command: mysqld --innodb_use_native_aio=0
         platform: linux/amd64
         ports:
             - '3306:3306'
