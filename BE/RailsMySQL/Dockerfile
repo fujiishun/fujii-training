@@ -1,8 +1,5 @@
 FROM ruby:3.1
-RUN apt-get update && apt-get install -y \
-    nodejs \
-    default-mysql-client \
-    yarn
+#RUN apt-get update && apt-get install -y \
 
 WORKDIR /RailsMySQL
 COPY Gemfile Gemfile.lock /RailsMySQL/

@@ -17,9 +17,7 @@ services:
         links:
             - db
     db:
-        image: mysql:5.7
-        command: mysqld --innodb_use_native_aio=0
-        platform: linux/amd64
+        image: mysql:8.0
         ports:
             - '3306:3306'
         volumes:
