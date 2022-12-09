@@ -1,0 +1,26 @@
+version: '3.9'
+volumes: 
+    data: 
+services:
+    web:
+        build: .
+        ports:
+            - '3001:3000'
+        volumes:
+            - '.:/RailsMySQL'
+        tty: true
+        stdin_open: true
+        environment:
+            - 'DATABASE_PASSWORD=password' 
+        depends_on: 
+            - db
+        links:
+            - db
+    db:
+        image: mysql:8.0
+        ports:
+            - '3306:3306'
+        volumes:
+            - 'data:/var/lib/mysql'
+        environment:
+            MYSQL_ROOT_PASSWORD: password
