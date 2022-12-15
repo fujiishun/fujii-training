@@ -7,6 +7,10 @@ Rails.application.routes.draw do
         registrations: 'api/v1/auth/registrations'
       }
 
+      as :user do
+     delete 'sign_out', to: 'sessions#destroy', as: :destroy_user_session
+  end
+
       namespace :auth do
         resources :sessions, only: %i[index]
       end
