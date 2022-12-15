@@ -75,10 +75,8 @@ const SignIn: React.FC = () => {
         setCurrentUser(res.data.data)
 
         history.push("/")
-
         console.log("Signed in successfully!")
-        console.log(JSON.stringify(res.headers["client"]))
-        console.log("_uid")
+        
       } else {
         setAlertMessageOpen(true)
       }
