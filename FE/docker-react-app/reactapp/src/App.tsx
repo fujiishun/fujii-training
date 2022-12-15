@@ -10,7 +10,7 @@ import SignOut from "components/pages/SignOut"
 
 import { getCurrentUser } from "lib/api/auth"
 import { User } from "interfaces/index"
-<p>aaaa</p>
+
 // グローバルで扱う変数・関数
 export const AuthContext = createContext({} as {
   loading: boolean

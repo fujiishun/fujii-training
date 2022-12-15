@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       }
 
       as :user do
-     delete 'sign_out', to: 'sessions#destroy', as: :destroy_user_session
+      delete 'sign_out', to: 'sessions#destroy', as: :destroy_user_session
   end
 
       namespace :auth do

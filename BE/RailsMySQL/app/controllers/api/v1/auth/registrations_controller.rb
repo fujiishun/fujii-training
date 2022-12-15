@@ -5,9 +5,9 @@ class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsCon
  def configure_sign_up_params
    devise_parameter_sanitizer.permit(:account_update, keys:[:name])
  end
-  private
-   
+
+private 
  def sign_up_params
-      params.permit(:nickname, :email, :password, :password_confirmation, :name)
-    end
+   params.permit(:nickname, :email, :password, :password_confirmation, :name)
+ end
 end
