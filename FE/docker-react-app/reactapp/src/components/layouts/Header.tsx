@@ -47,12 +47,9 @@ const Header: React.FC = () => {
         setIsSignedIn(false)
         histroy.push("/signin")
 
-        console.log("Succeeded in sign out")
       } else {
-        console.log("Failed in sign out")
       }
     } catch (err) {
-      console.log(err)
     }
   }
 

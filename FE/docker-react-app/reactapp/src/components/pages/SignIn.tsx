@@ -60,7 +60,6 @@ const SignIn: React.FC = () => {
 
     try {
       const res = await signIn(data)
-      console.log(res)
       //const value: string|undefined ="this isastring";
       //const strLength: undefined = (value as string).length;
       if (res.status === 200) {
@@ -75,13 +74,11 @@ const SignIn: React.FC = () => {
         setCurrentUser(res.data.data)
 
         history.push("/")
-        console.log("Signed in successfully!")
-        
+
       } else {
         setAlertMessageOpen(true)
       }
     } catch (err) {
-      console.log(err)
       setAlertMessageOpen(true)
     }
   }

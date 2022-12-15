@@ -57,7 +57,6 @@ const SignUp: React.FC = () => {
 
     try {
       const res = await signUp(data)
-      console.log(res)
 
       if (res.status === 200) {
         // アカウント作成と同時にサインインさせてしまう
@@ -71,13 +70,10 @@ const SignUp: React.FC = () => {
 
         histroy.push("/")
 
-        console.log("Signed in successfully!")
-        console.log(JSON.stringify(res.headers["client"]))
       } else {
         setAlertMessageOpen(true)
       }
     } catch (err) {
-      console.log(err)
       setAlertMessageOpen(true)
     }
   }
