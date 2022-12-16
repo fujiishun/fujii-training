@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn run fmt
+  /usr/local/bin/node /usr/local/bin/yarn remove prettier
 
 PATH: 
   /usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:./node_modules/.bin
