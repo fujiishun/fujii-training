@@ -10,7 +10,8 @@ const SignOut: React.FC = () => {
     <>
       {
         isSignedIn && currentUser ? (
-          <><h1>goodby</h1>
+          <>
+            <h1>goodby</h1>
             <h2>メールアドレス: {currentUser?.email}</h2>
             <h2>名前: {currentUser?.name}</h2>
             <hr />

@@ -10,11 +10,11 @@ const TestPage: React.FC = () => {
     <>
       {
         isSignedIn && currentUser ? (
-          <><h1>登録情報</h1>
+          <>
+            <h1>登録情報</h1>
             <h2>名前: {currentUser?.name}</h2>
             <h2>ニックネーム: {currentUser?.nickname}</h2>
-            <h2>メールアドレス: {currentUser?.email}</h2>
-            
+            <h2>メールアドレス: {currentUser?.email}</h2> 
             <hr />
             <Link to="/signin">サインイン</Link>
           </>

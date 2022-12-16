@@ -5,7 +5,6 @@ class Api::V1::Auth::SessionsController < ApplicationController
       render json: {
         message: I18n.t("devise_token_auth.sessions.user_not_found")
       }, status: 404
-    end
   end
 
   def index

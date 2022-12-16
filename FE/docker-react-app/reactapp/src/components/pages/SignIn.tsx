@@ -60,8 +60,7 @@ const SignIn: React.FC = () => {
 
     try {
       const res = await signIn(data)
-      //const value: string|undefined ="this isastring";
-      //const strLength: undefined = (value as string).length;
+      
       if (res.status === 200) {
         // 成功した場合はCookieに各値を格納 
 
