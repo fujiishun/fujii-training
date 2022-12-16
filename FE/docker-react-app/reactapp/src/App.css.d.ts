@@ -1,1 +1,1 @@
-export const center: string
+export const center: string;

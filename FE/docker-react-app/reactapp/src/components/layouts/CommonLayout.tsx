@@ -1,21 +1,21 @@
-import React from "react"
-import { Container, Grid } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
-import Header from "components/layouts/Header"
+import React from "react";
+import { Container, Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import Header from "components/layouts/Header";
 
 const useStyles = makeStyles(() => ({
   container: {
-    paddingTop: "3rem"
-  }
-}))
+    paddingTop: "3rem",
+  },
+}));
 
 interface CommonLayoutProps {
-  children: React.ReactElement
+  children: React.ReactElement;
 }
 
 // 全てのページで共通となるレイアウト
 const CommonLayout = ({ children }: CommonLayoutProps) => {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <>
       <header>
@@ -24,14 +24,12 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
       <main>
         <Container maxWidth="lg" className={classes.container}>
           <Grid container justify="center">
-            <Grid item>
-              {children}
-            </Grid>   
+            <Grid item>{children}</Grid>
           </Grid>
         </Container>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default CommonLayout
+export default CommonLayout;
