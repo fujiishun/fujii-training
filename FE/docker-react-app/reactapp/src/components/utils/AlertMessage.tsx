@@ -20,7 +20,6 @@ interface AlertMessageProps {
 const AlertMessage = ({ open, setOpen, severity, message}: AlertMessageProps) => {
   const handleCloseAlertMessage = (e?: React.SyntheticEvent, reason?: string) => {
     if (reason === "clickaway") return
-
     setOpen(false)
   }
 

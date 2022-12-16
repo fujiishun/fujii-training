@@ -16,7 +16,7 @@ const Home: React.FC = () => {
             <h2>名前: {currentUser?.name}</h2>
             <hr />
             <div className="center">
-            <h3><Link to="/testpage">登録情報</Link></h3>
+              <h3><Link to="/testpage">登録情報</Link></h3>
             </div>
           </>
         ) : (

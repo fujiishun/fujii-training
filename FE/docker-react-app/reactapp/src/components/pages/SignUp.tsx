@@ -34,9 +34,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 const SignUp: React.FC = () => {
   const classes = useStyles()
   const histroy = useHistory()
-
-  const { setIsSignedIn, setCurrentUser } = useContext(AuthContext)
   
+  const { setIsSignedIn, setCurrentUser } = useContext(AuthContext)
+
   const [nickname, setNickname] = useState<string>("")
   const [name, setName] = useState<string>("")
   const [email, setEmail] = useState<string>("")
@@ -64,12 +64,10 @@ const SignUp: React.FC = () => {
         Cookies.set("_access_token", JSON.stringify(res.headers["access-token"]))
         Cookies.set("_client", JSON.stringify(res.headers["client"]))
         Cookies.set("_uid", JSON.stringify(res.headers["uid"]))
-
+        // サインイン時の処理
         setIsSignedIn(true)
         setCurrentUser(res.data.data)
-
         histroy.push("/")
-
       } else {
         setAlertMessageOpen(true)
       }
