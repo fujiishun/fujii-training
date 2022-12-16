@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react"
 import { useHistory, Link } from "react-router-dom"
 import Cookies from "js-cookie"
-
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Typography } from "@material-ui/core"
 import TextField from "@material-ui/core/TextField"
@@ -10,13 +9,13 @@ import CardContent from "@material-ui/core/CardContent"
 import CardHeader from "@material-ui/core/CardHeader"
 import Button from "@material-ui/core/Button"
 import Box from "@material-ui/core/Box"
-
 import { AuthContext } from "App"
 import AlertMessage from "components/utils/AlertMessage"
 import { signIn } from "lib/api/auth"
 import { SignInData } from "interfaces/index"
 import { access } from "fs"
 
+//style
 const useStyles = makeStyles((theme: Theme) => ({
   submitBtn: {
     paddingTop: theme.spacing(2),
@@ -43,16 +42,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 const SignIn: React.FC = () => {
   const classes = useStyles()
   const history = useHistory()
-
   const { setIsSignedIn, setCurrentUser } = useContext(AuthContext)
-
   const [name, setName] = useState<string>("")
   const [password, setPassword] = useState<string>("")
   const [alertMessageOpen, setAlertMessageOpen] = useState<boolean>(false)
-
+  
+  // ボタン押下時
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-
     const data: SignInData = {
       name: name,
       password: password
@@ -60,7 +57,6 @@ const SignIn: React.FC = () => {
 
     try {
       const res = await signIn(data)
-      
       if (res.status === 200) {
         // 成功した場合はCookieに各値を格納 
         Cookies.set("_access_token", JSON.stringify(res.headers["access-token"]))

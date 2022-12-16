@@ -1,6 +1,5 @@
 import client from "lib/api/client"
 import Cookies from "js-cookie"
-
 import { SignUpData, SignInData } from "interfaces/index"
 
 // サインアップ（新規アカウント作成）

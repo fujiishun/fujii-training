@@ -1,19 +1,18 @@
 import React, { useState, useContext } from "react"
 import { useHistory } from "react-router-dom"
 import Cookies from "js-cookie"
-
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import TextField from "@material-ui/core/TextField"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
 import CardHeader from "@material-ui/core/CardHeader"
 import Button from "@material-ui/core/Button"
-
 import { AuthContext } from "App"
 import AlertMessage from "components/utils/AlertMessage"
 import { signUp } from "lib/api/auth"
 import { SignUpData } from "interfaces/index"
 
+//style
 const useStyles = makeStyles((theme: Theme) => ({
   submitBtn: {
     paddingTop: theme.spacing(2),
@@ -34,19 +33,17 @@ const useStyles = makeStyles((theme: Theme) => ({
 const SignUp: React.FC = () => {
   const classes = useStyles()
   const histroy = useHistory()
-  
   const { setIsSignedIn, setCurrentUser } = useContext(AuthContext)
-
   const [nickname, setNickname] = useState<string>("")
   const [name, setName] = useState<string>("")
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
   const [passwordConfirmation, setPasswordConfirmation] = useState<string>("")
   const [alertMessageOpen, setAlertMessageOpen] = useState<boolean>(false)
-
+  
+  // ボタン押下時
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-
     const data: SignUpData = {
       nickname: nickname,
       name: name,
@@ -57,7 +54,6 @@ const SignUp: React.FC = () => {
 
     try {
       const res = await signUp(data)
-
       if (res.status === 200) {
         // アカウント作成と同時にサインインさせてしまう
         // 本来であればメール確認などを挟むべきだが、今回はサンプルなので

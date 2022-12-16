@@ -1,13 +1,11 @@
 import React, { useState, useEffect, createContext } from "react"
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
-
 import CommonLayout from "components/layouts/CommonLayout"
 import Home from "components/pages/Home"
 import TestPage from "components/pages/TestPage"
 import SignUp from "components/pages/SignUp"
 import SignIn from "components/pages/SignIn"
 import SignOut from "components/pages/SignOut"
-
 import { getCurrentUser } from "lib/api/auth"
 import { User } from "interfaces/index"
 
@@ -31,7 +29,6 @@ const App: React.FC = () => {
   const handleGetCurrentUser = async () => {
     try {
       const res = await getCurrentUser()
-
       if (res?.status === 200) {
         setIsSignedIn(true)
         setCurrentUser(res?.data.currentUser)
@@ -40,11 +37,10 @@ const App: React.FC = () => {
     }
     setLoading(false)
   }
-
+  
   useEffect(() => {
     handleGetCurrentUser()
   }, [setCurrentUser])
-
 
   // ユーザーが認証済みかどうかでルーティングを決定
   // 未認証だった場合は「/signin」ページに促す

@@ -1,18 +1,14 @@
 import React, { useContext } from "react"
 import { useHistory, Link } from "react-router-dom"
 import Cookies from "js-cookie"
-
 import { makeStyles, Theme } from "@material-ui/core/styles"
-
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
 import Button from "@material-ui/core/Button"
 import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
-
 import { signOut } from "lib/api/auth"
-
 import { AuthContext } from "App"
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -33,20 +29,18 @@ const Header: React.FC = () => {
   const { loading, isSignedIn, setIsSignedIn } = useContext(AuthContext)
   const classes = useStyles()
   const histroy = useHistory()
-
+  // ボタン押下時
   const handleSignOut = async (e: React.MouseEvent<HTMLButtonElement>) => {
     try {
       const res = await signOut()
-
       if (res.data.success === true) {
         // サインアウト時には各Cookieを削除
         Cookies.remove("_access_token")
         Cookies.remove("_client")
         Cookies.remove("_uid")
-
+        //　サインアウト
         setIsSignedIn(false)
         histroy.push("/signin")
-
       } 
     } catch (err) {
     }

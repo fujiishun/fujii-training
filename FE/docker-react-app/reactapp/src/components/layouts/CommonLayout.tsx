@@ -1,8 +1,6 @@
 import React from "react"
-
 import { Container, Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-
 import Header from "components/layouts/Header"
 
 const useStyles = makeStyles(() => ({
@@ -18,7 +16,6 @@ interface CommonLayoutProps {
 // 全てのページで共通となるレイアウト
 const CommonLayout = ({ children }: CommonLayoutProps) => {
   const classes = useStyles()
-
   return (
     <>
       <header>
