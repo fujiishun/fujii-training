@@ -47,8 +47,7 @@ const Header: React.FC = () => {
         setIsSignedIn(false)
         histroy.push("/signin")
 
-      } else {
-      }
+      } 
     } catch (err) {
     }
   }
