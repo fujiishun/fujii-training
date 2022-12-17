@@ -17,6 +17,9 @@ const Home: React.FC = () => {
             <h3>
               <Link to="/testpage">登録情報</Link>
             </h3>
+            <h3>
+              <Link to="/post">投稿ページ</Link>
+            </h3>
           </div>
         </>
       ) : (
