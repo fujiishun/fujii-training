@@ -15,7 +15,7 @@ const Home: React.FC = () => {
           <hr />
           <div className="center">
             <h3>
-              <Link to="/testpage">登録情報</Link>
+              <Link to="/users">登録情報</Link>
             </h3>
             <h3>
               <Link to="/post">投稿ページ</Link>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "App";
 import { getTTFB } from "web-vitals";
 
-const ShowBook: React.FC = () => {
+const Search: React.FC = () => {
   const [bookId, setBookId] = useState("");
   const [bookTitle, setBookTitle] = useState("");
   const [bookBody, setBookBody] = useState("");
@@ -39,4 +39,4 @@ const ShowBook: React.FC = () => {
   );
 };
 
-export default ShowBook;
+export default Search;

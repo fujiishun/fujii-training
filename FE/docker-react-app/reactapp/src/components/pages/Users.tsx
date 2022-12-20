@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "App";
 
 // とりあえず認証済みユーザーの名前やメールアドレスを表示
-const TestPage: React.FC = () => {
+const Users: React.FC = () => {
   const { isSignedIn, currentUser } = useContext(AuthContext);
   return (
     <>
@@ -23,4 +23,4 @@ const TestPage: React.FC = () => {
   );
 };
 
-export default TestPage;
+export default Users;

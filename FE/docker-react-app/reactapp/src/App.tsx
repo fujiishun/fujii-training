@@ -8,13 +8,13 @@ import {
 } from "react-router-dom";
 import CommonLayout from "components/layouts/CommonLayout";
 import Home from "components/pages/Home";
-import TestPage from "components/pages/TestPage";
+import Users from "components/pages/Users";
 import SignUp from "components/pages/SignUp";
 import SignIn from "components/pages/SignIn";
 import SignOut from "components/pages/SignOut";
 import Post from "components/pages/Post";
-import ShowBook from "components/pages/book";
-import All from "components/pages/all";
+import Search from "components/pages/Search";
+import Index from "components/pages";
 import { getCurrentUser } from "lib/api/auth";
 import { User } from "interfaces/index";
 
@@ -85,11 +85,11 @@ const App: React.FC = () => {
             <Route exact path="/signout" component={SignOut} />
             <Private>
               <Switch>
-                <Route exact path="/Home" component={Home} />
-                <Route exact path="/testpage" component={TestPage} />
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/users" component={Users} />
                 <Route exact path="/post" component={Post} />
-                <Route exact path="/book" component={ShowBook} />
-                <Route exact path="/" component={All} />
+                <Route exact path="/search" component={Search} />
+                <Route exact path="/" component={Index} />
               </Switch>
             </Private>
           </Switch>

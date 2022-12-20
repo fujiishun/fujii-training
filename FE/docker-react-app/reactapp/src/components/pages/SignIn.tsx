@@ -126,7 +126,7 @@ const SignIn: React.FC = () => {
           </CardContent>
         </Card>
       </form>
-      <Link to="/testpage">登録情報</Link>
+      <Link to="/users">登録情報</Link>
       <AlertMessage // エラーが発生した場合はアラートを表示
         open={alertMessageOpen}
         setOpen={setAlertMessageOpen}

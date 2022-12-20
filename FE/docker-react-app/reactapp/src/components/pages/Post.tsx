@@ -58,7 +58,7 @@ const CreateBook: React.FC = () => {
       <input type="file" onChange={(e) => selectImage(e)} />
       <button onClick={sendFormData}>送信</button>
       <hr />
-      <Link to="/book">検索ページ</Link>
+      <Link to="/search">検索ページ</Link>
       <hr />
       <Link to="/">allページ</Link>
     </div>

@@ -5,7 +5,7 @@ import { AuthContext } from "App";
 import { getTTFB } from "web-vitals";
 import { responsiveFontSizes } from "@material-ui/core";
 
-export const All = () => {
+export const Index = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:3001/books").then((resp) => {
@@ -37,4 +37,4 @@ export const All = () => {
   );
 };
 
-export default All;
+export default Index;
