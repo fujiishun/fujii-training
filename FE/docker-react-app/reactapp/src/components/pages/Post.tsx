@@ -38,21 +38,19 @@ const CreateBook: React.FC = () => {
   return (
     <div>
       <h1>投稿する</h1>
-      <label>
-        題名：
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <br />
-        本文：
-        <input
-          type="text"
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-        />
-      </label>
+      <label>題名：</label>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <br />
+      <label>本文：</label>
+      <input
+        type="text"
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
+      />
       <br />
       <br />
       <input type="file" onChange={(e) => selectImage(e)} />
