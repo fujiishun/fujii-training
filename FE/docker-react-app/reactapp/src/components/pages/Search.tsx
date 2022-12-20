@@ -12,10 +12,10 @@ const Search: React.FC = () => {
 
   const getBookUrl = () => {
     if (!bookId) return;
-    const url = `http://localhost:3001/books/${bookId}`;
-    axios.get(url).then((response) => {
-      const url = response.data.book.label.url;
-      setLabelUrl(`${url}`);
+    const reqUrl = `http://localhost:3001/books/${bookId}`;
+    axios.get(reqUrl).then((response) => {
+      const imageUrl = response.data.book.label.url;
+      setLabelUrl(`${imageUrl}`);
       const title = response.data.book.title;
       setBookTitle(title);
       const body = response.data.book.body;
