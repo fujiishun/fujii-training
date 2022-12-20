@@ -67,7 +67,7 @@ const SignIn: React.FC = () => {
         // サインイン成功時の処理
         setIsSignedIn(true);
         setCurrentUser(res.data.data);
-        history.push("/");
+        history.push("/Home");
       } else {
         setAlertMessageOpen(true);
       }

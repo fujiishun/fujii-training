@@ -1,53 +1,68 @@
-import React, { useMemo } from "react";
-import Input from "@mui/material/Input";
-import Button from "@mui/material/Button";
+import React, { useCallback, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-export default function APP() {
-  const [file, setFile] = React.useState();
-  const handleChangeFile = useMemo(
-    () => (e: any) => {
-      const file = e.target.files[0];
-      setFile(file);
-    },
-    [file]
-  );
+const CreateBook: React.FC = () => {
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [label, setLabel] = useState<File>();
+
+  const selectImage = useCallback((e: any) => {
+    const selectedImage = e.target.files[0];
+    setLabel(selectedImage);
+  }, []);
 
   const createFormData = () => {
     const formData = new FormData();
-    formData.append("user[file]", file!);
+    if (!label) return; //labelがundefinedの場合早期リターン
+    formData.append("book[title]", title);
+    formData.append("book[body]", body);
+    formData.append("book[label]", label);
     return formData;
   };
 
-  const postFile = async () => {
-    const data = createFormData();
-    await axios
-      .post(`http://localhost:3000/post_file/`, data)
-      .then((response) => {
-        //成功したときの処理
-      })
-      .catch(() => {
-        //失敗したときの処理
-      });
+  const sendFormData = async () => {
+    const url = "http://localhost:3001/books";
+    const data = await createFormData(); //formdataが作成されるのを待つ
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    axios
+      .post(url, data, config)
+      .then((response) => {})
+      .catch((error) => {});
   };
 
   return (
-    <label htmlFor="contained-button-file">
-      <Input
-        id="contained-button-file"
-        type="file"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          handleChangeFile(e);
-        }}
-      />
-      <Button
-        size="medium"
-        onClick={() => {
-          postFile();
-        }}
-      >
-        Railsにファイルを送信
-      </Button>
-    </label>
+    <div>
+      <h1>投稿する</h1>
+      <label>
+        題名：
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <br />
+        本文：
+        <input
+          type="text"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        />
+      </label>
+      <br />
+      <br />
+      <input type="file" onChange={(e) => selectImage(e)} />
+      <button onClick={sendFormData}>送信</button>
+      <hr />
+      <Link to="/book">検索ページ</Link>
+      <hr />
+      <Link to="/">allページ</Link>
+    </div>
   );
-}
+};
+
+export default CreateBook;
