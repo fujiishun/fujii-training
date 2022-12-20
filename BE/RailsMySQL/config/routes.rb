@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/books/all', to:'books#all'
+  #get '/books/all', to:'books#all'
   resources :books
 
   namespace :api do

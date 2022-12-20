@@ -8,7 +8,7 @@ import { responsiveFontSizes } from "@material-ui/core";
 export const All = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:3001/books/all").then((resp) => {
+    axios.get("http://localhost:3001/books").then((resp) => {
       setBooks(resp.data);
     });
   }, []);
