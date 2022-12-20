@@ -1,6 +1,5 @@
 
 class BooksController < ApplicationController
-
   def all
     @book = Book.all
     render json: @book

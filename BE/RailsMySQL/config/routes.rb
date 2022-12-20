@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  #post '/articles', to: 'articles#create'
-  #get '/articles/:id', to: 'articles#show'
-  
   get '/books/all', to:'books#all'
-  post '/books', to: 'books#create'
-  get  '/books/:id', to: 'books#show'
+  resources :books
+
   namespace :api do
     namespace :v1 do
 
