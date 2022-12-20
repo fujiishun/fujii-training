@@ -7,7 +7,7 @@ import { getTTFB } from "web-vitals";
 const ShowBook: React.FC = () => {
   const [bookId, setBookId] = useState("");
   const [bookTitle, setBookTitle] = useState("");
-  const [bookName, setBookName] = useState("");
+  const [bookBody, setBookBody] = useState("");
   const [labelUrl, setLabelUrl] = useState("");
 
   const getBookUrl = () => {
@@ -18,8 +18,8 @@ const ShowBook: React.FC = () => {
       setLabelUrl(`${url}`);
       const title = response.data.book.title;
       setBookTitle(title);
-      const name = response.data.book.name;
-      setBookName(name);
+      const body = response.data.book.body;
+      setBookBody(body);
     });
   };
   return (
@@ -33,7 +33,7 @@ const ShowBook: React.FC = () => {
       <button onClick={getBookUrl}>検索</button>
       <p>タイトル:{bookTitle}</p>
       {labelUrl && <img src={labelUrl} width={200} />}
-      <h2>名前: {bookName}</h2>
+      <h2>本文: {bookBody}</h2>
       <Link to="/">allページ</Link>
     </div>
   );
