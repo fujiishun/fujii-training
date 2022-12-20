@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  #post '/articles', to: 'articles#create'
+  #get '/articles/:id', to: 'articles#show'
+  
+  get '/books/all', to:'books#all'
+  post '/books', to: 'books#create'
+  get  '/books/:id', to: 'books#show'
   namespace :api do
     namespace :v1 do
-      resources :test, only: %i[index]
 
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
         registrations: 'api/v1/auth/registrations'
