@@ -65,7 +65,7 @@ const SignUp: React.FC = () => {
         // サインイン時の処理
         setIsSignedIn(true);
         setCurrentUser(res.data.data);
-        histroy.push("/");
+        histroy.push("/Home");
       } else {
         setAlertMessageOpen(true);
       }

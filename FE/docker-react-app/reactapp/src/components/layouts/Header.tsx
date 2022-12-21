@@ -93,7 +93,7 @@ const Header: React.FC = () => {
             variant="h6"
             className={classes.title}
           >
-            Sample
+            WEAR
           </Typography>
           <AuthButtons />
         </Toolbar>
