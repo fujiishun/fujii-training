@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2022_12_19_155032) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_21_125914) do
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.string "image"
@@ -22,15 +21,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_155032) do
   create_table "books", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.string "label"
-    t.string "name"
     t.string "body"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "name"
+    t.boolean "is_completed"
   end
 
-=======
-ActiveRecord::Schema[7.0].define(version: 2022_12_17_013210) do
->>>>>>> parent of f4024f02f (install package)
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false

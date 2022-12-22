@@ -1,3 +1,3 @@
 class Book < ApplicationRecord
-    mount_uploader :label, LabelUploader
+  mount_uploader :label, LabelUploader
 end
