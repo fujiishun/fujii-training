@@ -22,6 +22,26 @@ class BooksController < ApplicationController
     end
   end
 
+  def edit
+    @book = Book.find(params[:id])
+    if @book
+      render json: { status: 200, book: @book }
+    else
+      render json: { status: 500}
+    end
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    @book.update(books_params)
+
+    if @book
+      render json: { status: 200, book: @book }
+    else
+      render json: { status: 500}
+    end
+  end
+  
   private
 
     def books_params
