@@ -18,10 +18,10 @@ const Home: React.FC = () => {
               <Link to="/users">登録情報</Link>
             </h3>
             <h3>
-              <Link to="/post">投稿ページ</Link>
+              <Link to="/">allページ</Link>
             </h3>
             <h3>
-              <Link to="/">allページ</Link>
+              <Link to="/mypage">myページ</Link>
             </h3>
           </div>
         </>
