@@ -7,5 +7,4 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable,
   authentication_keys: %i[email name]
   include DeviseTokenAuth::Concerns::User
-  has_many :books, dependent: :destroy#, foreign_key: 'user_id'
-end
+  has_many :books, dependent: :destroy
