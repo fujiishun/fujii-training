@@ -5,7 +5,7 @@ import { AuthContext } from "App";
 import { getTTFB } from "web-vitals";
 
 interface State {
-  id: string;
+  post_id: string;
 }
 
 const EditPost: React.FC = () => {
@@ -24,9 +24,9 @@ const EditPost: React.FC = () => {
   }, []);
 
   const location = useLocation();
-  const { id } = location.state as State;
+  const { post_id } = location.state as State;
 
-  const reqUrl = `http://localhost:3001/books/${id}/edit`;
+  const reqUrl = `http://localhost:3001/books/${post_id}/edit`;
   axios.get(reqUrl).then((response) => {
     const imageUrl = response.data.book.label.url;
     setLabelUrl(`${imageUrl}`);
@@ -46,7 +46,7 @@ const EditPost: React.FC = () => {
   };
 
   const editFormData = async () => {
-    const url = `http://localhost:3001/books/${id}`;
+    const url = `http://localhost:3001/books/${post_id}`;
     const data = await createFormData(); //formdataが作成されるのを待つ
     const config = {
       headers: {

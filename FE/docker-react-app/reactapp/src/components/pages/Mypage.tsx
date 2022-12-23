@@ -17,13 +17,14 @@ export const Mypage = () => {
   return (
     <div>
       <h1>投稿一覧</h1>
-      <Link to="/post">投稿ページ</Link>
       <br />
       <Link to="/signin">ログインページ</Link>
       <hr />
       {books.map((book: any) => (
         <div>
-          ID:{book.id} タイトル:{book.title}
+          投稿ID:{book.id}
+          <br />
+          投稿者ID:{book.user_id} タイトル:{book.title}
           <p>ユーザ名:{}</p>
           <p>
             {book.label && (
@@ -31,7 +32,7 @@ export const Mypage = () => {
             )}
           </p>
           <p>本文:{book.body}</p>
-          <Link to={{ pathname: "/editpost", state: { id: book.id } }}>
+          <Link to={{ pathname: "/editpost", state: { post_id: book.id } }}>
             <p>編集</p>
           </Link>
           <hr />
