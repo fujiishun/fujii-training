@@ -10,11 +10,11 @@ interface State {
 
 const EditUser: React.FC = () => {
   //user
-  const [nickname, setName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   //更新用user
   const [newname, newName] = useState("");
-  const [newmail, newEmail] = useState("");
+  const [newemail, newEmail] = useState("");
 
   const location = useLocation();
   const { u_id } = location.state as State;
@@ -27,7 +27,7 @@ const EditUser: React.FC = () => {
     axios
       .patch(`http://localhost:3001/users/${u_id}`, {
         nickname: newname,
-        email: newmail,
+        email: newemail,
       })
       .then((response) => {
         if (u_id === response.data.id) {
@@ -40,7 +40,7 @@ const EditUser: React.FC = () => {
   return (
     <div>
       <h1>更新前</h1>
-      <h2>nickname:{nickname}</h2>
+      <h2>nickname:{name}</h2>
       <h2>email: {email}</h2>
       <hr />
       <br />
@@ -55,7 +55,7 @@ const EditUser: React.FC = () => {
       <label>email:</label>
       <input
         type="text"
-        value={newmail}
+        value={newemail}
         onChange={(e) => newEmail(e.target.value)}
       />
       <button onClick={editUserData}>更新</button>
