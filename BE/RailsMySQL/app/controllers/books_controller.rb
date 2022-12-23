@@ -3,9 +3,13 @@ class BooksController < ApplicationController
     @book = Book.all
     render json: @book
   end
+  
+  def new
+    @book = Book.new
+  end
 
   def create
-    @book = Book.new(books_params)
+    @book = Book.create(books_params)
     if @book.save
       render json: { status: 200, book: @book }
     else
@@ -34,7 +38,6 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     @book.update(books_params)
-
     if @book
       render json: { status: 200, book: @book }
     else
@@ -45,7 +48,7 @@ class BooksController < ApplicationController
   private
 
     def books_params
-      params.require(:book).permit(:title, :label, :body)
+      params.require(:book).permit(:title, :label, :body, :user_id)
     end
 
   end
