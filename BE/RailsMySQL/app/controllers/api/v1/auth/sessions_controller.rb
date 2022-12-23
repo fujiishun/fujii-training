@@ -14,7 +14,4 @@ class Api::V1::Auth::SessionsController < ApplicationController
       render json: { status: 500, message: "ユーザーが存在しません" }
     end
   end
-
-  def create
-  end
 end

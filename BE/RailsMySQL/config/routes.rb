@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :books, only: [:index, :create, :show, :edit, :update]
   resources :users, only: [:edit, :update]
-  devise_for :users
-  devise_for :books
 
   namespace :api do
     namespace :v1 do
