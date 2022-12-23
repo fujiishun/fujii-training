@@ -3,7 +3,7 @@ class BooksController < ApplicationController
     @book = Book.all
     render json: @book
   end
-  
+
   def create
     @book = Book.new(books_params)
     if @book.save
