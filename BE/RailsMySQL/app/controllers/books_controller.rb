@@ -4,12 +4,8 @@ class BooksController < ApplicationController
     render json: @book
   end
   
-  def new
-    @book = Book.new
-  end
-
   def create
-    @book = Book.create(books_params)
+    @book = Book.new(books_params)
     if @book.save
       render json: { status: 200, book: @book }
     else
