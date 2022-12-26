@@ -39,6 +39,9 @@ class BooksController < ApplicationController
       render json: { status: 500}
     end
   end
+
+  def destroy
+  end
   
   private
 
