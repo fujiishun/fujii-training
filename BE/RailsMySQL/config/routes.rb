@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :books, only: [:index, :create, :show]
+  resources :books, except: [:destroy, :new]
+  resources :users, only: [:edit, :update]
 
   namespace :api do
     namespace :v1 do
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
       end
 
       namespace :auth do
-        resources :sessions, only: [:index]
+        resources :sessions, only: [:index, :create]
       end
     end
   end

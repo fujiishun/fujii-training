@@ -1,6 +1,12 @@
-import React, { useCallback, useState } from "react";
+import React, { useContext, useCallback, useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "App";
+
+//投稿に紐付けるユーザID
+interface State {
+  uid: string;
+}
 
 const CreateBook: React.FC = () => {
   const [title, setTitle] = useState("");
@@ -12,12 +18,17 @@ const CreateBook: React.FC = () => {
     setLabel(selectedImage);
   }, []);
 
+  const location = useLocation();
+  const { uid } = location.state as State;
+
   const createFormData = () => {
     const formData = new FormData();
     if (!label) return; //labelがundefinedの場合早期リターン
     formData.append("book[title]", title);
     formData.append("book[body]", body);
     formData.append("book[label]", label);
+    formData.append("book[user_id]", `${uid}`);
+
     return formData;
   };
 

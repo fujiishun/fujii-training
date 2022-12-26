@@ -1,3 +1,4 @@
 class Book < ApplicationRecord
-    mount_uploader :label, LabelUploader
+  belongs_to :user, foreign_key: 'user_id'
+  mount_uploader :label, LabelUploader
 end

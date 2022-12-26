@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { AuthContext } from "App";
 import { getTTFB } from "web-vitals";
-import { responsiveFontSizes } from "@material-ui/core";
+import { Button, responsiveFontSizes } from "@material-ui/core";
 
 export const Index = () => {
   const [books, setBooks] = useState([]);
@@ -13,24 +13,31 @@ export const Index = () => {
     });
   }, []);
 
+  const { isSignedIn, currentUser } = useContext(AuthContext);
+
   return (
     <div>
       <h1>投稿一覧</h1>
-      <Link to="/post">投稿ページ</Link>
+      <Link to={{ pathname: "/post", state: { uid: currentUser?.id } }}>
+        投稿ページ
+      </Link>
       <br />
       <Link to="/signin">ログインページ</Link>
+      <br />
+      <Link to="/mypage">myページ</Link>
+      <hr />
       {books.map((book: any) => (
         <div>
-          <p>
+          <Link to={{ pathname: "/detail", state: { book_id: book.id } }}>
             ID:{book.id} タイトル:{book.title}
-          </p>
-          <p>
-            {book.label && (
-              <img src={book.label.url} width={200} height={200} />
-            )}
-          </p>
-          <p>本文:{book.body}</p>
-          <hr />
+            <p>
+              {book.label && (
+                <img src={book.label.url} width={200} height={150} />
+              )}
+            </p>
+            <p>本文:{book.body}</p>
+            <hr />
+          </Link>
         </div>
       ))}
     </div>
