@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "App";
 import { getTTFB } from "web-vitals";
 
+//編集するユーザーのID
 interface State {
   u_id: string;
 }

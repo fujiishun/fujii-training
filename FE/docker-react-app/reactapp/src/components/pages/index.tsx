@@ -28,7 +28,7 @@ export const Index = () => {
       <hr />
       {books.map((book: any) => (
         <div>
-          <Link to={{ pathname: "/detail", state: { book: book.id } }}>
+          <Link to={{ pathname: "/detail", state: { book_id: book.id } }}>
             ID:{book.id} タイトル:{book.title}
             <p>
               {book.label && (

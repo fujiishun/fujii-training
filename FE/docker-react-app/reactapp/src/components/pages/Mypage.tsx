@@ -32,7 +32,7 @@ export const Mypage = () => {
             )}
           </p>
           <p>本文:{book.body}</p>
-          <Link to={{ pathname: "/editpost", state: { post_id: book.id } }}>
+          <Link to={{ pathname: "/editpost", state: { book_id: book.id } }}>
             <p>編集</p>
           </Link>
           <hr />

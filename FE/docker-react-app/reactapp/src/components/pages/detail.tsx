@@ -4,8 +4,9 @@ import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "App";
 import { getTTFB } from "web-vitals";
 
+//詳細表示投稿のID
 interface State {
-  book: string;
+  book_id: string;
 }
 
 const Detail: React.FC = () => {
@@ -14,9 +15,9 @@ const Detail: React.FC = () => {
   const [labelUrl, setLabelUrl] = useState("");
 
   const location = useLocation();
-  const { book } = location.state as State;
+  const { book_id } = location.state as State;
 
-  const reqUrl = `http://localhost:3001/books/${book}`;
+  const reqUrl = `http://localhost:3001/books/${book_id}`;
   axios.get(reqUrl).then((response) => {
     const imageUrl = response.data.book.label.url;
     setLabelUrl(`${imageUrl}`);

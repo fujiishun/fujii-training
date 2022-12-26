@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "App";
 
+//投稿に紐付けるユーザID
 interface State {
   uid: string;
 }
