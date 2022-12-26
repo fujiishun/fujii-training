@@ -10,8 +10,7 @@ class UsersController < ApplicationController
     
   def update
     @user = User.find(params[:id])
-    @user.update(users_params)
-    if @user
+    if @user.update(users_params)
       render json: { status: 200, user: @user}
     else
       render json: { status: 500}
