@@ -33,8 +33,7 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.update(books_params)
-    if @book
+    if @book.update(books_params)
       render json: { status: 200, book: @book }
     else
       render json: { status: 500}
