@@ -60,6 +60,19 @@ const EditPost: React.FC = () => {
       .catch((error) => {});
   };
 
+  const deleteFormData = async () => {
+    const url = `http://localhost:3001/books/${book_id}`;
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    axios
+      .delete(url, config)
+      .then((response) => {})
+      .catch((error) => {});
+  };
+
   return (
     <div>
       <h1>更新前</h1>
@@ -87,6 +100,7 @@ const EditPost: React.FC = () => {
       <input type="file" onChange={(e) => selectImage(e)} />
       <button onClick={editFormData}>更新</button>
       <br />
+      <button onClick={deleteFormData}>削除</button>
       <br />
       <Link to="/mypage">マイページ</Link>
     </div>
