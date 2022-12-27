@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :books, except: [:destroy, :new]
+  resources :books, except: [:new]
   resources :users, only: [:edit, :update]
 
   namespace :api do
