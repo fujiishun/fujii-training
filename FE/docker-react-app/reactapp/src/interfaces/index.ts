@@ -21,18 +21,19 @@ export interface User {
   email: string;
   name: string;
   nickname: string;
+  management_flag: boolean;
   image?: string;
   allowPasswordChange: boolean;
 }
 
 export interface Post {
-  id: string
-  content: string
+  id: string;
+  content: string;
   image?: {
-    url: string
-  }
+    url: string;
+  };
 }
 
 export interface PostApiJson {
-  posts: Post[]
+  posts: Post[];
 }
