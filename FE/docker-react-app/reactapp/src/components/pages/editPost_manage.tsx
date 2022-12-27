@@ -9,7 +9,7 @@ interface State {
   book_id: string;
 }
 
-const EditPost: React.FC = () => {
+const EditPost_manage: React.FC = () => {
   //表示用book
   const [bookTitle, setBookTitle] = useState("");
   const [bookBody, setBookBody] = useState("");
@@ -102,9 +102,9 @@ const EditPost: React.FC = () => {
       <br />
       <button onClick={deleteFormData}>削除</button>
       <br />
-      <Link to="/mypage">マイページ</Link>
+      <Link to="/post_manage">投稿編集</Link>
     </div>
   );
 };
 
-export default EditPost;
+export default EditPost_manage;
