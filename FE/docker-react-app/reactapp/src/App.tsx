@@ -24,6 +24,7 @@ import { User } from "interfaces/index";
 import Post_manage from "components/pages/Post_manage";
 import EditPost_manage from "components/pages/editPost_manage";
 import User_manage from "components/pages/User_manage";
+import EditUser_manage from "components/pages/editUser_manage";
 
 // グローバルで扱う変数・関数
 export const AuthContext = createContext(
@@ -107,6 +108,11 @@ const App: React.FC = () => {
                   exact
                   path="/editpost_manage"
                   component={EditPost_manage}
+                />
+                <Route
+                  exact
+                  path="/edituser_manage"
+                  component={EditUser_manage}
                 />
               </Switch>
             </Private>

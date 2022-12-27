@@ -34,7 +34,7 @@ const Search: React.FC = () => {
       <p>タイトル:{bookTitle}</p>
       {labelUrl && <img src={labelUrl} width={200} />}
       <h2>本文: {bookBody}</h2>
-      <Link to="/">allページ</Link>
+      <Link to="/">投稿一覧ページ</Link>
     </div>
   );
 };
