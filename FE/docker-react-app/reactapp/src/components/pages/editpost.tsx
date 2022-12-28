@@ -73,37 +73,51 @@ const EditPost: React.FC = () => {
       .catch((error) => {});
   };
 
+  const { isSignedIn, currentUser } = useContext(AuthContext);
+
   return (
-    <div>
-      <h1>更新前</h1>
-      <h2>タイトル:{bookTitle}</h2>
-      {labelUrl && <img src={labelUrl} width={400} height={300} />}
-      <h2>本文: {bookBody}</h2>
-      <hr />
-      <br />
-      <h1>編集する</h1>
-      <label>題名：</label>
-      <input
-        type="text"
-        value={newTitle}
-        onChange={(e) => newBookTitle(e.target.value)}
-      />
-      <br />
-      <label>本文：</label>
-      <input
-        type="text"
-        value={newBody}
-        onChange={(e) => newBookBody(e.target.value)}
-      />
-      <br />
-      <br />
-      <input type="file" onChange={(e) => selectImage(e)} />
-      <button onClick={editFormData}>更新</button>
-      <br />
-      <button onClick={deleteFormData}>削除</button>
-      <br />
-      <Link to="/mypage">マイページ</Link>
-    </div>
+    <>
+      {isSignedIn && currentUser ? (
+        <>
+          <div>
+            <h1>更新前</h1>
+            <h2>タイトル:{bookTitle}</h2>
+            {labelUrl && <img src={labelUrl} width={400} height={300} />}
+            <h2>本文: {bookBody}</h2>
+            <hr />
+            <br />
+            <h1>編集する</h1>
+            <label>題名：</label>
+            <input
+              type="text"
+              value={newTitle}
+              onChange={(e) => newBookTitle(e.target.value)}
+            />
+            <br />
+            <label>本文：</label>
+            <input
+              type="text"
+              value={newBody}
+              onChange={(e) => newBookBody(e.target.value)}
+            />
+            <br />
+            <br />
+            <input type="file" onChange={(e) => selectImage(e)} />
+            <button onClick={editFormData}>更新</button>
+            <br />
+            <button onClick={deleteFormData}>削除</button>
+            <br />
+            <Link to="/mypage">マイページ</Link>
+          </div>
+        </>
+      ) : (
+        <div>
+          <h1>ログインしてください</h1>
+          <hr />
+          <Link to="/signin">サインイン</Link>
+        </div>
+      )}
+    </>
   );
 };
 

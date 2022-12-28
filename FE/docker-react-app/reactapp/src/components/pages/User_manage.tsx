@@ -48,7 +48,8 @@ const User_manage: React.FC = () => {
         </>
       ) : (
         <div>
-          <h1>ログインしてください</h1>
+          <h1>編集権限がありません</h1>
+          <h1>管理者としてログインしてください</h1>
           <hr />
           <Link to="/signin">サインイン</Link>
         </div>

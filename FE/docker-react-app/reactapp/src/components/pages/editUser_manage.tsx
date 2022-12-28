@@ -69,43 +69,58 @@ const EditUser_manage: React.FC = () => {
       .catch((error) => {});
   };
 
+  const { isSignedIn, currentUser } = useContext(AuthContext);
+
   return (
-    <div>
-      <h1>更新前</h1>
-      <h2>登録No.{user_id}</h2>
-      <h2>ユーザID:{userName}</h2>
-      <h2>登録名: {userNickName}</h2>
-      <h2>Email: {userEmail}</h2>
-      <hr />
-      <br />
-      <h1>編集する</h1>
-      <label>ユーザID:</label>
-      <input
-        type="text"
-        value={newName}
-        onChange={(e) => newBookTitle(e.target.value)}
-      />
-      <br />
-      <label>登録名:</label>
-      <input
-        type="text"
-        value={newNickname}
-        onChange={(e) => newBookBody(e.target.value)}
-      />
-      <br />
-      <label>Email: </label>
-      <input
-        type="text"
-        value={newEmail}
-        onChange={(e) => newLabelUrl(e.target.value)}
-      />
-      <br />
-      <button onClick={editUserData}>更新</button>
-      <br />
-      <button onClick={deleteUserData}>削除</button>
-      <br />
-      <Link to="/user_manage">ユーザ編集</Link>
-    </div>
+    <>
+      {isSignedIn && currentUser ? (
+        <>
+          <div>
+            <h1>更新前</h1>
+            <h2>登録No.{user_id}</h2>
+            <h2>ユーザID:{userName}</h2>
+            <h2>登録名: {userNickName}</h2>
+            <h2>Email: {userEmail}</h2>
+            <hr />
+            <br />
+            <h1>編集する</h1>
+            <label>ユーザID:</label>
+            <input
+              type="text"
+              value={newName}
+              onChange={(e) => newBookTitle(e.target.value)}
+            />
+            <br />
+            <label>登録名:</label>
+            <input
+              type="text"
+              value={newNickname}
+              onChange={(e) => newBookBody(e.target.value)}
+            />
+            <br />
+            <label>Email: </label>
+            <input
+              type="text"
+              value={newEmail}
+              onChange={(e) => newLabelUrl(e.target.value)}
+            />
+            <br />
+            <button onClick={editUserData}>更新</button>
+            <br />
+            <button onClick={deleteUserData}>削除</button>
+            <br />
+            <Link to="/user_manage">ユーザ編集</Link>
+          </div>
+        </>
+      ) : (
+        <div>
+          <h1>編集権限がありません</h1>
+          <h1>管理者としてログインしてください</h1>
+          <hr />
+          <Link to="/signin">サインイン</Link>
+        </div>
+      )}
+    </>
   );
 };
 
