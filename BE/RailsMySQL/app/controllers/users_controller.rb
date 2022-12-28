@@ -1,11 +1,16 @@
 class UsersController < ApplicationController 
+  def index
+    @user = User.all
+    render json: @user
+  end
+
   def edit
     @user = User.find(params[:id])
-    if @user
-      render json: { status: 200, user: @user }
-    else
+    if @user.nil?
       render json: { status: 500}
+      return
     end
+    render json: { status: 200, user: @user }
   end
     
   def update
@@ -15,6 +20,11 @@ class UsersController < ApplicationController
     else
       render json: { status: 500}
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
   end
       
   private

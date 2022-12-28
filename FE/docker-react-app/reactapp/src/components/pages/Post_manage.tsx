@@ -6,18 +6,15 @@ import { getTTFB } from "web-vitals";
 import { responsiveFontSizes } from "@material-ui/core";
 import { valHooks } from "jquery";
 
-export const Mypage = () => {
-  const { isSignedIn, currentUser } = useContext(AuthContext);
-
+export const Post_manage = () => {
   const [books, setBooks] = useState([]);
-
   useEffect(() => {
-    axios
-      .get(`http://localhost:3001/books/mypage/${currentUser?.id}`)
-      .then((resp) => {
-        setBooks(resp.data);
-      });
+    axios.get("http://localhost:3001/books").then((resp) => {
+      setBooks(resp.data);
+    });
   }, []);
+
+  const { isSignedIn, currentUser } = useContext(AuthContext);
 
   return (
     <>
@@ -27,12 +24,15 @@ export const Mypage = () => {
             <h1>投稿一覧</h1>
             <br />
             <Link to="/signin">ログインページ</Link>
+            <br />
+            <Link to="/Home">ホームページ</Link>
             <hr />
             {books.map((book: any) => (
               <div>
                 投稿ID:{book.id}
                 <br />
                 投稿者ID:{book.user_id} タイトル:{book.title}
+                <p>ユーザ名:{}</p>
                 <p>
                   {book.label && (
                     <img src={book.label.url} width={200} height={150} />
@@ -40,7 +40,10 @@ export const Mypage = () => {
                 </p>
                 <p>本文:{book.body}</p>
                 <Link
-                  to={{ pathname: "/editpost", state: { book_id: book.id } }}
+                  to={{
+                    pathname: "/editpost_manage",
+                    state: { book_id: book.id },
+                  }}
                 >
                   <p>編集</p>
                 </Link>
@@ -51,7 +54,8 @@ export const Mypage = () => {
         </>
       ) : (
         <div>
-          <h1>ログインしてください</h1>
+          <h1>編集権限がありません</h1>
+          <h1>管理者としてログインしてください</h1>
           <hr />
           <Link to="/signin">サインイン</Link>
         </div>
@@ -60,4 +64,4 @@ export const Mypage = () => {
   );
 };
 
-export default Mypage;
+export default Post_manage;

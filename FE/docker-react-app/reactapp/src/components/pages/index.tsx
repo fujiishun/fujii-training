@@ -25,6 +25,8 @@ export const Index = () => {
       <Link to="/signin">ログインページ</Link>
       <br />
       <Link to="/mypage">myページ</Link>
+      <br />
+      <Link to="/Home">Homeページ</Link>
       <hr />
       {books.map((book: any) => (
         <div>

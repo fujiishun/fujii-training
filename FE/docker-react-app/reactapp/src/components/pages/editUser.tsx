@@ -38,32 +38,46 @@ const EditUser: React.FC = () => {
       });
   };
 
+  const { isSignedIn, currentUser } = useContext(AuthContext);
+
   return (
-    <div>
-      <h1>更新前</h1>
-      <h2>nickname:{name}</h2>
-      <h2>email: {email}</h2>
-      <hr />
-      <br />
-      <h1>編集する</h1>
-      <label>nickname:</label>
-      <input
-        type="text"
-        value={newname}
-        onChange={(e) => newName(e.target.value)}
-      />
-      <br />
-      <label>email:</label>
-      <input
-        type="text"
-        value={newemail}
-        onChange={(e) => newEmail(e.target.value)}
-      />
-      <button onClick={editUserData}>更新</button>
-      <br />
-      <br />
-      <Link to="/users">登録情報</Link>
-    </div>
+    <>
+      {isSignedIn && currentUser ? (
+        <>
+          <div>
+            <h1>更新前</h1>
+            <h2>nickname:{name}</h2>
+            <h2>email: {email}</h2>
+            <hr />
+            <br />
+            <h1>編集する</h1>
+            <label>nickname:</label>
+            <input
+              type="text"
+              value={newname}
+              onChange={(e) => newName(e.target.value)}
+            />
+            <br />
+            <label>email:</label>
+            <input
+              type="text"
+              value={newemail}
+              onChange={(e) => newEmail(e.target.value)}
+            />
+            <button onClick={editUserData}>更新</button>
+            <br />
+            <br />
+            <Link to="/users">登録情報</Link>
+          </div>
+        </>
+      ) : (
+        <div>
+          <h1>ログインしてください</h1>
+          <hr />
+          <Link to="/signin">サインイン</Link>
+        </div>
+      )}
+    </>
   );
 };
 

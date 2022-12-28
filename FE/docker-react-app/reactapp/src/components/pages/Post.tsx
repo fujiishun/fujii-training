@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "App";
 
-//投稿に紐付けるユーザID
+//投稿に紐付けるユーザーID
 interface State {
   uid: string;
 }
@@ -69,7 +69,7 @@ const CreateBook: React.FC = () => {
       <hr />
       <Link to="/search">検索ページ</Link>
       <hr />
-      <Link to="/">allページ</Link>
+      <Link to="/">投稿一覧</Link>
     </div>
   );
 };
