@@ -22,7 +22,6 @@ export interface User {
   name: string;
   nickname: string;
   management_flag: boolean;
-  password: string;
   image?: string;
   allowPasswordChange: boolean;
 }

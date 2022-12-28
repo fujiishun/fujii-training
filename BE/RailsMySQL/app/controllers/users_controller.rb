@@ -21,6 +21,11 @@ class UsersController < ApplicationController
       render json: { status: 500}
     end
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+  end
       
   private
 
