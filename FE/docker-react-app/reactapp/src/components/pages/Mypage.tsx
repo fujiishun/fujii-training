@@ -7,11 +7,16 @@ import { responsiveFontSizes } from "@material-ui/core";
 import { valHooks } from "jquery";
 
 export const Mypage = () => {
+  const { isSignedIn, currentUser } = useContext(AuthContext);
+
   const [books, setBooks] = useState([]);
+
   useEffect(() => {
-    axios.get("http://localhost:3001/books").then((resp) => {
-      setBooks(resp.data);
-    });
+    axios
+      .get(`http://localhost:3001/books/mypage/${currentUser?.id}`)
+      .then((resp) => {
+        setBooks(resp.data);
+      });
   }, []);
 
   return (
@@ -25,7 +30,6 @@ export const Mypage = () => {
           投稿ID:{book.id}
           <br />
           投稿者ID:{book.user_id} タイトル:{book.title}
-          <p>ユーザ名:{}</p>
           <p>
             {book.label && (
               <img src={book.label.url} width={200} height={150} />

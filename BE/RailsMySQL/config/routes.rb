@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :books, except: [:new]
+  #resources :books, except: [:new]
+  resources :books
+  get 'books/mypage/:user_id/', to: 'books#mypage'
   resources :users, only: [:index, :edit, :update]
 
   namespace :api do

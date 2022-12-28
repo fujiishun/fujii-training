@@ -45,6 +45,11 @@ class BooksController < ApplicationController
     @book.destroy
   end
   
+  def mypage
+    @book = Book.where(user_id: params[:user_id])
+    render json:  @book 
+  end
+
   private
 
     def books_params
