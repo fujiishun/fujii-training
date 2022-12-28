@@ -15,20 +15,20 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    if @book
-      render json: { status: 200, book: @book }
-    else
+    if @book.nil?
       render json: { status: 500}
+      return
     end
+    render json: { status: 200, book: @book }
   end
 
   def edit
     @book = Book.find(params[:id])
-    if @book
-      render json: { status: 200, book: @book }
-    else
+    if @book.nil?
       render json: { status: 500}
+      return
     end
+    render json: { status: 200, book: @book }
   end
 
   def update
@@ -47,6 +47,10 @@ class BooksController < ApplicationController
   
   def mypage
     @book = Book.where(user_id: params[:user_id])
+    if @book.nil?
+      render json: { status: 500}
+      return
+    end
     render json:  @book 
   end
 

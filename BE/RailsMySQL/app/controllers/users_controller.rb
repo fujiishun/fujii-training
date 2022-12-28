@@ -6,11 +6,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @user
-      render json: { status: 200, user: @user }
-    else
+    if @user.nil?
       render json: { status: 500}
+      return
     end
+    render json: { status: 200, user: @user }
   end
     
   def update
